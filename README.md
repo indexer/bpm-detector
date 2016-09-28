@@ -1,7 +1,6 @@
-# bpm-detector
-run with
-python bpm_detection.py --filename bpm-150.wav
+# How to run
 
+python bpm_detection.py --filename bpm-150.wav
 
 
 ## Prerequisites
