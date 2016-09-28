@@ -19,4 +19,5 @@ The Romantic WTF public license.
 
 #References 
 http://www.flipcode.com/misc/BeatDetectionAlgorithms.pdf
+
 https://www.coursera.org/learn/audio-signal-processing/home
