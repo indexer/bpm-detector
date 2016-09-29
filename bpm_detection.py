@@ -5,6 +5,7 @@ import pdb
 from pydub import AudioSegment
 import matplotlib.pyplot as plt
 from pydub import AudioSegment
+from mutagen.id3 import ID3, TPE1,TBPM,ID3NoHeaderError
 
 def read_wav(filename):
 
@@ -147,6 +148,14 @@ if __name__ == '__main__':
 
     bpm = numpy.median(bpms)
     print ('Completed.  Estimated Beats Per Minute:', bpm)
+    
+    #Adding bpm to the mp3 file back
+    try:
+       audio = ID3(args.filename)
+    except ID3NoHeaderError:
+       audio = ID3()
+       audio.add(TBPM(encoding=3,text=str(bpm)))
+       audio.save(args.filename)
     
     n = range(0,int(len(correl)))
     plt.plot(n,abs(correl)); 
